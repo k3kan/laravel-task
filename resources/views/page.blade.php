@@ -13,15 +13,16 @@
             <li><a href="/contacts">Контакты</a></li>
         </ul>
     </nav>
-    @foreach($page as $object)
-        {!! $object->body !!}
-    @endforeach
 
     <h2>Рекламный блок</h2>
-    {!! $blocks->where("name", "advertising")->value("body") !!}
+    @foreach ($block as $object)
 
-    <h2>Добавочный блок</h2>
-    {!! $anyBlocks->where("id", $blocks->where("any_block_id", 1)->value("any_block_id"))->value("body") !!}
+        {!! $object->body !!}
+
+        {!! $blocks->where('id', $object->any_block_id)->value('body') !!}
+
+    @endforeach
+
 </header>
 </body>
 </html>

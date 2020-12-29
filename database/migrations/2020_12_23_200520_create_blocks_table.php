@@ -19,7 +19,7 @@ class CreateBlocksTable extends Migration
             $table->text('body');
             $table->unsignedBigInteger('any_block_id');
             $table->foreign('any_block_id')
-                ->references('id')->on('any_blocks');
+                ->references('id')->on('blocks');
             $table->timestamps();
         });
     }

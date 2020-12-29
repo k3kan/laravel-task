@@ -16,7 +16,7 @@ class PageController extends Controller
             return view('404');
         }
         $blocks = DB::table('blocks');
-        $anyBlocks = DB::table('any_blocks');
-        return view('page', ['page' => $page, 'blocks' => $blocks, 'anyBlocks' => $anyBlocks]);
+        $block = DB::table('blocks')->where('name', 'advertising')->get();
+        return view('page', ['page' => $page, 'blocks' => $blocks, 'block' => $block]);
     }
 }
